@@ -8,3 +8,4 @@ tensorboard-plugin-profile
 tornado<6.2
 gym
 Box2D
+keras-rl2
