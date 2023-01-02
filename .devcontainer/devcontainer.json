@@ -1,11 +1,11 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
-	"name": "Python 3 Tensorflow 2.11",
-	// "image": "nvcr.io/nvidia/tensorflow:22.11-tf2-py3",
-	"image": "a88317ae0b1b040d71ddc3a7801f57049d46b8d0448c7caaa2bc14ab6fff788a",
+	"name": "Python 3 PyTorch",
+	"image": "0055b6d22e7ec6f933a15b7bdcab706ed12ded599486bde744d32db84ea1d305",
+	// "image": "nvcr.io/nvidia/pytorch:22.11-py3",
 	"features": { },
-	"runArgs": ["--gpus", "all", "--ipc=host", "--ulimit", "memlock=-1", "--ulimit", "stack=67108864", "-p=8080:8080"],
+	"runArgs": ["--gpus", "all", "--ipc=host", "--ulimit", "memlock=-1", "--ulimit", "stack=67108864"],
 
 	// "build": { 
     //     "context": "..",
@@ -18,10 +18,10 @@
 	// "features": {},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+	"forwardPorts": ["8080:80"],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "python -m pip install --root-user-action=ignore -r requirements.txt",
+	"postCreateCommand": "python -m pip install --root-user-action=ignore -r requirements.txt && export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64 && tensorboard --logdir=data/model/TensorBoard --port 8088",
 	"customizations": {
 		"vscode": {
 			"extensions": [

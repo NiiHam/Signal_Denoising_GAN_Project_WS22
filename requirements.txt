@@ -3,8 +3,5 @@ ipywidgets
 matplotlib
 pandas
 seaborn 
-scaleogram
-pywavelets
-tensorflow-addons
 google
 tensorboard-plugin-profile
