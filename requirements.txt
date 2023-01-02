@@ -5,3 +5,4 @@ pandas
 seaborn 
 google
 tensorboard-plugin-profile
+tornado<6.2
